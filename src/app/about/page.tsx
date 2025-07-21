@@ -14,7 +14,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <h1>Index Page</h1>
+        <h1>About Page</h1>
         <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
             新たに編集を加える{" "}
