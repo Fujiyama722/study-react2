@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // コンポーネントはddefault いらない
-export default function Links() {
+export function Links() {
   return (
     <div className="flex gap-4 items-center flex-col sm:flex-row">
       <a

@@ -1,5 +1,6 @@
+import { Headline } from "@/components/Headline";
+import { Links } from "@/components/Links";
 import { Footer } from "@/components/Footer";
-import Links from "@/components/Links";
 import Image from "next/image";
 
 export default function Home() {
@@ -14,20 +15,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <h1>Index Page</h1>
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            新たに編集を加える{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
+        <Headline title="Index" page=""/>
         <Links />
       </main>
       <Footer />
