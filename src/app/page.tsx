@@ -1,10 +1,13 @@
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import { Main } from "@/components/Main";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <Main page="index" />
+    <div className="font-sans flex flex-col justify-around items-center justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-10">
+      {/* スタイルが面倒ならこの<div>すらもコンポーネント化してしまおう */}
+      <Header />
+      <Main title="index" />
       <Footer />
     </div>
   );

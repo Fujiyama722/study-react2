@@ -17,8 +17,8 @@ export function Main(props: {
         priority
       />
       <Headline
-        title={props.page}
-        page={props.page} //本当は省略してもいい状態
+        title={props.title}
+        page={props.title} //本当は省略してもいい状態
         // number={0}
         // array={[]}
         // object={{ foo: "", bar: "" }}
@@ -26,7 +26,7 @@ export function Main(props: {
         // コンポーネントタグ内に記述するとchildrenとしてpropsに渡される
       >
         <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-          src/app/page.tsx.
+          src/app/{props.page}page.tsx.
         </code>
       </Headline>
       <Links />
