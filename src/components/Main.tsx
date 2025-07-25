@@ -7,7 +7,7 @@ export function Main(props: {
   page?: string; // ← ? を付けると省略可能
 }) {
   return (
-    <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <main className="flex flex-col gap-[32px] row-start-2 items-center">
       <Image
         className="dark:invert"
         src="/next.svg"

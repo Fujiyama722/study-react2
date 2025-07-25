@@ -13,7 +13,7 @@ export function Headline(props: {
   children?: ReactNode;
 }) {
   return (
-    <div>
+    <div className="flex items-center flex-col gap-2">
       <h1>{props.title} Page</h1>
       <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
         <li className="mb-2 tracking-[-.01em]">

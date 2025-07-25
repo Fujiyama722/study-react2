@@ -1,4 +1,17 @@
 import Image from "next/image";
+// データここから
+interface Item {
+  href: string;
+  title: string;
+  description: string;
+}
+interface Btn {
+  href: string;
+  class: string;
+  target: string;
+  rel: string;
+  text: string;
+}
 
 const ITEMS = [
   {
@@ -21,7 +34,7 @@ const ITEMS = [
     title: "第四のカード →",
     description: "これは4つ目のカードである",
   },
-];
+] as const satisfies readonly Item[];
 
 const BTN = [
   {
@@ -38,13 +51,13 @@ const BTN = [
     rel: "noopener noreferrer",
     text: "ドキュメントを読む",
   },
-];
+] as const satisfies readonly Btn[];
 
-// コンポーネントはdefault いらない
+// 処理ここから
 export function Links() {
   return (
     <div className="flex gap-4 items-center flex-col">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 items-center justify-center">
         {ITEMS.map((item) => {
           return (
             // key は一番外側に一つあればいい
