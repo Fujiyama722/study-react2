@@ -7,8 +7,8 @@ import { useCallback } from "react";
 const foo = 1;
 
 export default function Home() {
-  const handleClick = useCallback((e) => { //useCallback()で関数(e)=>{}を囲う
-    console.log(e.target.href);
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => { //useCallback()で関数(e)=>{}を囲う
+    console.log(e.currentTarget.href);
     e.preventDefault();
     alert(foo);
   }, []);
