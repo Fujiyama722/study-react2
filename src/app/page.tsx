@@ -13,12 +13,12 @@ export default function Home() {
   const handleClick = useCallback(() => {
     console.log(count);
     if (count < 10) {
-      setCount((count) => count + 1); // {count + 1}これだめ  {(count) => count + 1}これ正解
+      setCount((prevCount) => prevCount + 1); // {count + 1}これだめ  {(count) => count + 1}これ正解
     }
   }, [count]);
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
