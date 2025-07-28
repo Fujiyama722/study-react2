@@ -8,6 +8,7 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState<string[]>([]);
 
   // 講座12回目参照
   const handleClick = useCallback(() => {
@@ -28,6 +29,16 @@ export default function Home() {
     // onChenge で入力テキストに変更
     setText(e.target.value.trim());
   }, []);
+
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some((item) => item === text)) {
+        alert("同じ要素が既に存在します")
+        return prevArray;
+      }
+      return [...prevArray, text]; // 配列もイミュータブルに扱う必要あり
+    })
+  }, [text])
 
   //
   useEffect(() => {
@@ -55,9 +66,18 @@ export default function Home() {
           id="text-input"
           type="text"
           value={text}
+          placeholder="テキストを入力"
           className="bg-white border text-black "
           onChange={handleChange}
         />
+        <button onClick={handleAdd}>追加</button>
+        <ul>
+          {array.map(item => {
+            return (
+              <li key={item}>{item}</li>
+            )
+          })}
+        </ul>
       </div>
       <Main title="index" />
       <Footer />
