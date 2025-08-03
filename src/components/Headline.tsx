@@ -1,6 +1,12 @@
 // import Image from "next/image";
 import React, { ReactNode } from "react";
+import type { MouseEventHandler } from "react";
 
+interface Item {
+  href: string;
+  title: string;
+  description: string;
+}
 export function Headline(props: {
   title?: string;
   page?: string; // ← ? を付けると省略可能
@@ -11,6 +17,8 @@ export function Headline(props: {
   code?: ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode;
+  items: readonly Item[];
+  handleReduce: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <div className="flex items-center flex-col gap-2">
@@ -23,6 +31,8 @@ export function Headline(props: {
           Save and see your changes instantly.
         </li>
       </ol>
+      <p>アイテムの数は{props.items.length}個です</p>
+      <button onClick={props.handleReduce}>減らす</button>
     </div>
   );
 }

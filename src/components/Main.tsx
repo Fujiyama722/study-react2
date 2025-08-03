@@ -1,11 +1,48 @@
 import { Headline } from "@/components/Headline";
 import { Links } from "@/components/Links";
 import Image from "next/image";
+import { useCallback, useState } from "react";
+
+// データここから
+interface Item {
+  href: string;
+  title: string;
+  description: string;
+}
+const ITEMS = [
+  {
+    href: "#aaa",
+    title: "第一のカード →",
+    description: "これは1つ目のカードである",
+  },
+  {
+    href: "#bbb",
+    title: "第二のカード →",
+    description: "これは2つ目のカードである",
+  },
+  {
+    href: "#ccc",
+    title: "第三のカード →",
+    description: "これは3つ目のカードである",
+  },
+  {
+    href: "#ddd",
+    title: "第四のカード →",
+    description: "これは4つ目のカードである",
+  },
+] as const satisfies readonly Item[];
 
 export function Main(props: {
   title?: string; // ← ? を付けると省略可能
   page?: string; // ← ? を付けると省略可能
 }) {
+  const [items, setItems] = useState<readonly Item[]>(ITEMS);
+  const handleReduce = useCallback(() => {
+    setItems((prevItems) => {
+      return prevItems.slice(0, prevItems.length - 1);
+    });
+  }, []);
+
   return (
     <main className="flex flex-col gap-[32px] row-start-2 items-center">
       <Image
@@ -19,6 +56,8 @@ export function Main(props: {
       <Headline
         title={props.title}
         page={props.title} //本当は省略してもいい状態
+        items={items}
+        handleReduce={handleReduce}
         // number={0}
         // array={[]}
         // object={{ foo: "", bar: "" }}
@@ -29,7 +68,7 @@ export function Main(props: {
           src/app/{props.page}page.tsx.
         </code>
       </Headline>
-      <Links />
+      <Links items={items} handleReduce={handleReduce} />
     </main>
   );
 }
