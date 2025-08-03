@@ -13,7 +13,7 @@ export default function About() {
   // const { count, isShow, handleClick, handleDisplay } = useCounter();
   // const { text, array, handleChange, handleAdd } = useInputArray();
   // useBgLightBlue();
-  const { count, isShow, handleClick, handleDisplay } = useSharedCounter();
+  const { doubleCount, isShow, handleClick, handleDisplay } = useSharedCounter();
   const { text, array, handleChange, handleAdd } = useSharedInputArray();
 
   return (
@@ -22,7 +22,7 @@ export default function About() {
       <Header />
 
       <div className="flex flex-col gap-2 items-center justify-center">
-        {isShow ? <h1>{count}</h1> : null}
+        {isShow ? <h1>{doubleCount}</h1> : null}
         <button className=" text-white bg-blue-700 " onClick={handleClick}>
           ボタン
         </button>
