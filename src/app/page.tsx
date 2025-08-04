@@ -44,7 +44,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <Main title="index" />
+      <Main title="index" page="" />
       <Footer />
     </div>
   );

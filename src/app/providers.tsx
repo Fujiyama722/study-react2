@@ -2,7 +2,7 @@
 
 import { useInputArray } from "@/hooks/useInputArray";
 import { useCounter } from "@/hooks/useCounter";
-import { useBgLightBlue } from "@/hooks/useBgLightBlue";
+import { useBgColor } from "@/hooks/useBgColor";
 import { createContext, useContext, type ReactNode } from "react";
 
 // 各カスタムフックの返り値の型を定義します
@@ -19,7 +19,7 @@ const InputArrayContext = createContext<InputArrayContextType | undefined>(
 export function AppProviders({ children }: { children: ReactNode }) {
   const counter = useCounter();
   const inputArray = useInputArray();
-  useBgLightBlue(); // このフックは値を返さないので、ここで呼び出すだけでOKです
+  useBgColor(); // このフックは値を返さないので、ここで呼び出すだけでOKです
 
   return (
     <CounterContext.Provider value={counter}>

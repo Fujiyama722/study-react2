@@ -55,7 +55,7 @@ export function Main(props: {
       />
       <Headline
         title={props.title}
-        page={props.title} //本当は省略してもいい状態
+        page={props.page}
         items={items}
         handleReduce={handleReduce}
         // number={0}
