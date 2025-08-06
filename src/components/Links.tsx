@@ -9,7 +9,6 @@ interface Item {
 
 interface LinksProps {
   items: readonly Item[];
-  handleReduce: MouseEventHandler<HTMLButtonElement>;
 }
 
 interface Btn {
@@ -37,12 +36,12 @@ const BTN = [
 ] as const satisfies readonly Btn[];
 
 // 処理ここから
-export function Links({ items, handleReduce }: LinksProps) {
+export function Links(props: LinksProps) {
   return (
     <div className="flex gap-4 items-center flex-col">
       <div className="flex flex-wrap gap-2 items-center justify-center">
         {/* <button onClick={handleReduce}>減らす</button> */}
-        {items.map((item) => {
+        {props.items.map((item) => {
           return (
             // key は一番外側に一つあればいい
             <a

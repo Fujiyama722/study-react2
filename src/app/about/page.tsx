@@ -2,17 +2,10 @@
 import { Header } from "@/components/Header";
 import { Main } from "@/components/Main";
 import { Footer } from "@/components/Footer";
-// import { useInputArray } from "@/hooks/useInputArray";
-// import { useCounter } from "@/hooks/useCounter";
-// import { useBgLightBlue } from "@/hooks/useBgLightBlue";
 import { useSharedCounter, useSharedInputArray } from "@/app/providers";
-
 
 export default function About() {
   // hooksは必ずトップレベル（returnの前）で呼び出す
-  // const { count, isShow, handleClick, handleDisplay } = useCounter();
-  // const { text, array, handleChange, handleAdd } = useInputArray();
-  // useBgLightBlue();
   const { doubleCount, isShow, handleClick, handleDisplay } = useSharedCounter();
   const { text, array, handleChange, handleAdd } = useSharedInputArray();
 
@@ -39,9 +32,7 @@ export default function About() {
         />
         <button onClick={handleAdd}>追加</button>
         <ul>
-          {array.map((item) => {
-            return <li key={item}>{item}</li>;
-          })}
+          {array.map((item) => <li key={item} >{item}</li>)}
         </ul>
       </div>
 

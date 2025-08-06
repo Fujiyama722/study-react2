@@ -68,7 +68,7 @@ export function Main(props: {
           src/app/{props.page}page.tsx.
         </code>
       </Headline>
-      <Links items={items} handleReduce={handleReduce} />
+      <Links items={items} />
     </main>
   );
 }
